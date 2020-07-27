@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Online Dating Form</title>
+    <!-- <style>
+          select {
+                 width: 340px;
+          }
+          
+          .rel{
+                 position:relative;
+                 width:1340px;
+                 height:700px;
+                 background-color: white;
+          }
+          
+          #birthDate{
+                width:340px;
+          }
+          .display{
+                margin-top:50px;
+          }
+          #form {
+                 margin-left: 30vw;
+                 margin-right: 30vw;
+                 border:2px solid red;
+                 padding:50px 120px;
+                 background-color: yellow;
+          }
+          
+          #color {
+                width:195px;
+          }
+         
+         #btna{
+               margin-left:7vw;
+               width:120px;
+         }
+        
+     </style>-->
+     <link rel="stylesheet" type="text/css" href="CSSstyle.css">
+</head>
+<body>
+   <div class="display">
+     <center><h2>Please Enter Your Details For Our Dating Website!</h2></center>
+     <form id="form" name="myform">
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name" size="48"><br><br>
+          
+          <label for="">Gender : </label>
+          <input type="radio" id="male" name="gender" value="Male" >
+          <label for="gender">Male</label>
+          <input type="radio" id="female" name="gender" value="Female">
+          <label for="gender">Female</label><br><br>
+          
+          <label for="age">Age:</label><br>
+          <input type="text" id="age" name="age" size="48" ><br><br>
+          
+          <label for="birthDate">Date of birth:</label><br>
+          <input type="date" id="birthDate" name="birthDate" > <br><br>
+          
+          <label for="color">Favourite color:</label>
+          <input type="color" id="color" name="color" > <br><br>
+          
+          <label for="state">Which state:<label><br>
+          <select name = "state" >
+          <option value ="" disabled selected hidden>Select one</option>
+          <option value = "Maharashtra">Maharashtra</option>
+          <option value = "Bihar">Bihar</option>
+          <option value = "Uttar Pradesh">Uttar Pradesh</option>
+          <option value = "karnataka">Karnataka</option>
+          <option value = "other">Other</option>
+          </select><br><br>
+          
+          <label for = "image">Your Image:</label><br>
+          <input type = "file" name = "fileToUpload" > <br><br>
+          
+          <label for = "email">Email:</label><br>
+          <input type = "email" id = "email" name = "email" size="48" > <br><br>
+          
+          <label for = "mobile">Mobile:</label><br>
+          <input type = "tel" id = "mobile" name = "mobile" size="48"> </br><br>
+          
+          <label for = "address">Address:</label><br>
+          <textarea id = "address" name = "address" cols="45" ></textarea> <br><br>
+          
+          <label for = "contactMethod">Method to contact you:</label><br>
+          <input type = "checkbox" name = "contactMethod" value = "Email" class = "selection">Email</input>
+          <input type = "checkbox" name = "contactMethod" value = "Whatsapp" class = "selection">Whatsapp</input>
+          <input type = "checkbox" name = "contactMethod" value = "In-app chat" class = "selection">In-app chat</input><br><br>
+          
+          <input type="submit" value="Submit" id="btna">
+     </form>
+     </div>
+     
+     <script src="Javast.js"></script>
+     <!--<script>
+          function checkEmail(str1)
+          {
+              var posat=str1.indexOf("@");
+              var posdot=str1.indexOf(".");
+          
+          if(posat!=-1 && posdot!=-1)
+          {
+              if(posat>=1 && (posdot-posat)>=2 && (str1.length-1-posdot)>=2 && (str1.length-1-posdot)<=5)
+              {
+                return true;
+              }
+              else
+              {
+                return false;
+              }
+          }
+          else
+          {
+          return false;
+          }
+          }
+          const validateForm = (ev) =>{
+               ev.preventDefault();
+               var nam=document.myform.name.value;
+               var gen=document.myform.gender.value;
+               var age2=document.myform.age.value;
+               var birth=document.myform.birthDate.value;
+               var file=document.myform.fileToUpload.value;
+               var email1=document.myform.email.value;
+               var state2=document.myform.state.value;
+               var mobile2=document.myform.mobile.value;
+               var add=document.myform.address.value;
+               if(nam=="" || nam==null)
+               {
+                  alert("Name should not be null");
+               }
+               else if(nam.length<3)
+               {
+                  alert("Name length should be less 3-30");
+                  
+               }
+               else if(nam.length>30)
+               {
+                  alert("Name length should be 3-30");
+                  
+               }
+               else if(isNaN(nam)==false)
+               {
+                  alert("Name should not be a numeric");
+                  
+               }
+               else if(gen=="" || gen==null)
+               {
+               alert("Please select gender");
+               }
+               else if(age2=="" || age2==null)
+               {
+               alert("Age cannot be null");
+               }
+               else if(age2<10)
+               {
+                  alert("Age must be greater than 10");
+                  
+               }
+               else if(birth=="" || birth==null)
+               {
+               alert("Please select birth date");
+               }
+               else if(state2=="" || state2==null)
+               {
+               alert("Please select the state");
+               
+               }
+               else if(file=="" || file==null)
+               {
+               alert("Please select file");
+               }
+               else if(email1=="" || email1==null)
+               {
+               alert("Email cannot be empty");
+               
+               }
+               else if(!checkEmail(email1))
+               {
+               alert("Email not valid");
+               
+               }
+               else if(mobile2=="" || mobile2==null)
+               {
+               alert("Mobile number cannot be null");
+               }
+               else if(mobile2.length!=10)
+               {
+               alert("Please enter a 10 digit no");
+               
+               }
+               else if(add=="" || add==null)
+               {
+               alert("Address cannot be null");
+               }
+               else
+               {
+                  alert("successfully registered");
+                  document.querySelector("form").reset();
+                  
+               }
+          }
+          document.addEventListener("DOMContentLoaded", ()=>{
+              document.getElementById("btna").addEventListener("click", validateForm);
+          });
+         
+   </script>-->
+</body>
+</html>
